@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,20 @@ public class TimeServlet extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//使用request接受请求数据
+		  //1.请求行
+		System.out.println("协议类型:"+request.getProtocol());
+		System.out.println("访问路径:"+request.getServletPath());
+		System.out.println("请求方式:"+request.getMethod());
+		  //2.消息头:按照键值对方式存储
+		Enumeration<String> e=request.getHeaderNames();
+		while(e.hasMoreElements()) {
+			String key=e.nextElement();
+			String value=request.getHeader(key);
+			System.out.println(key+":"+value);
+		}
+		  //3.实体内容
+		
                  Date date=new Date();		
                  SimpleDateFormat sdf=new SimpleDateFormat("HH:MM:ss");
                  String now=sdf.format(date);
