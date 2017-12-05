@@ -29,4 +29,13 @@
     <servlet-name>RandomDemo</servlet-name>
     <url-pattern>/RandomDemo</url-pattern>
    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>reg</servlet-name>
+        <servlet-class>Reg.reg</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reg</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
 </web-app>
